@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+}
+
+<div class="row col-12 align-items-center">
+    <div class="col-md-3">
+        <partial name="_ManageNav" />
+    </div>
+    <div class="col-md-9">
+        @RenderBody()
+    </div>
+</div>
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}
