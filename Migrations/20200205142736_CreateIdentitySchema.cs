@@ -191,7 +191,7 @@ namespace ProjetoTeste.Migrations
                     Data = table.Column<DateTime>(nullable: false),
                     ValorIngresso = table.Column<float>(nullable: false),
                     CasaShowId = table.Column<int>(nullable: true),
-                    CategId = table.Column<int>(nullable: true)
+                    CategoriaId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -203,8 +203,8 @@ namespace ProjetoTeste.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Eventos_Categorias_CategId",
-                        column: x => x.CategId,
+                        name: "FK_Eventos_Categorias_CategoriaId",
+                        column: x => x.CategoriaId,
                         principalTable: "Categorias",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -253,9 +253,9 @@ namespace ProjetoTeste.Migrations
                 column: "CasaShowId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Eventos_CategId",
+                name: "IX_Eventos_CategoriaId",
                 table: "Eventos",
-                column: "CategId");
+                column: "CategoriaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

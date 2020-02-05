@@ -9,7 +9,7 @@ using ProjetoTeste.Data;
 namespace ProjetoTeste.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200204144743_CreateIdentitySchema")]
+    [Migration("20200205142736_CreateIdentitySchema")]
     partial class CreateIdentitySchema
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -258,7 +258,7 @@ namespace ProjetoTeste.Migrations
                     b.Property<int?>("CasaShowId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CategId")
+                    b.Property<int?>("CategoriaId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Data")
@@ -274,7 +274,7 @@ namespace ProjetoTeste.Migrations
 
                     b.HasIndex("CasaShowId");
 
-                    b.HasIndex("CategId");
+                    b.HasIndex("CategoriaId");
 
                     b.ToTable("Eventos");
                 });
@@ -336,9 +336,9 @@ namespace ProjetoTeste.Migrations
                         .WithMany()
                         .HasForeignKey("CasaShowId");
 
-                    b.HasOne("ProjetoTeste.Models.Categoria", "Categ")
+                    b.HasOne("ProjetoTeste.Models.Categoria", "Categoria")
                         .WithMany()
-                        .HasForeignKey("CategId");
+                        .HasForeignKey("CategoriaId");
                 });
 #pragma warning restore 612, 618
         }

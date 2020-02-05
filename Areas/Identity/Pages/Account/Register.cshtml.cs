@@ -46,7 +46,7 @@ namespace ProjetoTeste.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [EmailAddress]
+            [EmailAddress(ErrorMessage = "O e-mail informado não é válido")]
             [Display(Name = "Email")]
             public string Email { get; set; }
 

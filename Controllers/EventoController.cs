@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjetoTeste.Data;
+using ProjetoTeste.DTO;
 using ProjetoTeste.Models;
 
 namespace ProjetoTeste.Controllers
@@ -18,8 +19,8 @@ namespace ProjetoTeste.Controllers
         {
             _context = context;
         }
-        [HttpGet("eventos")]
 
+        [HttpGet("eventos")]
         // GET: Evento
         public async Task<IActionResult> Index()
         {
@@ -47,6 +48,8 @@ namespace ProjetoTeste.Controllers
         // GET: Evento/Create
         public IActionResult Create()
         {
+            ViewBag.CasaShow = _context.CasaShow.ToList();
+            ViewBag.Categorias = _context.Categorias.ToList();
             return View();
         }
 
@@ -55,15 +58,22 @@ namespace ProjetoTeste.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Capacidade,Data,ValorIngresso")] Evento evento)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Capacidade,Data,ValorIngresso,CasaShowId,CategoriaId")] EventoDTO eventoTemp)
         {
             if (ModelState.IsValid)
             {
+                Evento evento = new Evento();
+                evento.Nome = eventoTemp.Nome;
+                evento.Capacidade = eventoTemp.Capacidade;
+                evento.Data = eventoTemp.Data;
+                evento.ValorIngresso = eventoTemp.ValorIngresso;
+                evento.CasaShow = _context.CasaShow.First(cs => cs.Id == eventoTemp.CasaShowId);
+                evento.Categoria = _context.Categorias.First(ctg => ctg.Id == eventoTemp.CategoriaId);
                 _context.Add(evento);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(evento);
+            return View(eventoTemp);
         }
 
         // GET: Evento/Edit/5
