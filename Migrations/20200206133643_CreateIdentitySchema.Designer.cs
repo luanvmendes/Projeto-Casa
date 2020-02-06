@@ -9,7 +9,7 @@ using ProjetoTeste.Data;
 namespace ProjetoTeste.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200205142736_CreateIdentitySchema")]
+    [Migration("20200206133643_CreateIdentitySchema")]
     partial class CreateIdentitySchema
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

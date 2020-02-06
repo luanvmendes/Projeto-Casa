@@ -1,8 +1,7 @@
-@model IEnumerable<ProjetoTeste.Models.CasaDeShow>
+@model IEnumerable<ProjetoTeste.Models.Categoria>
 
 @{
-    ViewData["Title"] = "Casas de Show";
-    Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+    ViewData["Title"] = "Categorias"; Layout = "/Areas/Identity/Pages/_Layout.cshtml";
 }
 <div class="row col-12 align-items-start pt-5" >
     <div class="pt-5 col-12">
@@ -10,11 +9,8 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>
+                    <th class="col-8">
                         @Html.DisplayNameFor(model => model.Nome)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Endereco)
                     </th>
                     <th></th>
                 </tr>
@@ -24,9 +20,6 @@
                     <tr>
                         <td>
                             @Html.DisplayFor(modelItem => item.Nome)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Endereco)
                         </td>
                         <td>
                             <a asp-action="Edit" asp-route-id="@item.Id" title="Editar"><i class="fas fa-pen-square text-secondary"></i></a> <i class="fas fa-grip-lines-vertical"></i>

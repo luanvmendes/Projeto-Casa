@@ -23,7 +23,10 @@
                         @Html.DisplayNameFor(model => model.ValorIngresso)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.CasaShow.Nome)
+                        @Html.DisplayNameFor(model => model.CasaShow)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Categoria)
                     </th>
                     <th></th>
                 </tr>
@@ -47,9 +50,12 @@
                             @Html.DisplayFor(modelItem => item.CasaShow.Nome)
                         </td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-pen-square"></i></a> |
-                            <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash"></i></a>
+                            @Html.DisplayFor(modelItem => item.Categoria.Nome)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" title="Editar"><i class="fas fa-pen-square text-secondary"></i></a> <i class="fas fa-grip-lines-vertical"></i>
+                            <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes"><i class="fas fa-info-circle text-info"></i></a> <i class="fas fa-grip-lines-vertical"></i>
+                            <a asp-action="Delete" asp-route-id="@item.Id" title="Apagar"><i class="fas fa-trash text-danger"></i></a>
                         </td>
                     </tr>
                 }

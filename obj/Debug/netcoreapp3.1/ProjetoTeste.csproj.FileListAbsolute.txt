@@ -203,3 +203,8 @@ C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Ev
 C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Evento\Index.cshtml.g.cs
 C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\bin\Debug\netcoreapp3.1\Castle.Core.dll
 C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\Create.cshtml.g.cs
+C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\Delete.cshtml.g.cs
+C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\Details.cshtml.g.cs
+C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\Edit.cshtml.g.cs
+C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\Index.cshtml.g.cs

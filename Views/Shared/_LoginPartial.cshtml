@@ -9,11 +9,17 @@
         <li class="nav-item">
             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" asp-area="" asp-controller="CasaDeShow" asp-action="Index">Casa de Show</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" asp-area="" asp-controller="Evento" asp-action="Index">Eventos</a>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Cadastros
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="nav-link text-dark py-0 px-2" asp-area="" asp-controller="CasaDeShow" asp-action="Index">Casas de Show</a>
+            <div class="dropdown-divider"></div>
+            <a class="nav-link text-dark py-0 px-2" asp-area="" asp-controller="Evento" asp-action="Index">Eventos</a>
+            <div class="dropdown-divider"></div>
+            <a class="nav-link text-dark py-0 px-2" asp-area="" asp-controller="Categoria" asp-action="Index">Categorias</a>
+            </div>
         </li>
         <li class="nav-item">
             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Histórico">Histórico</a>

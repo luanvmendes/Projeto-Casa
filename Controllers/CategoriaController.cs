@@ -6,30 +6,27 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjetoTeste.Data;
-using ProjetoTeste.DTO;
 using ProjetoTeste.Models;
 
 namespace ProjetoTeste.Controllers
 {
-    public class EventoController : Controller
+    public class CategoriaController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public EventoController(ApplicationDbContext context)
+        public CategoriaController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        [HttpGet("eventos")]
-        // GET: Evento
+        [HttpGet("categorias")]
+        // GET: Categoria
         public async Task<IActionResult> Index()
         {
-            ViewBag.CasaShow = _context.CasaShow.ToList();
-            ViewBag.Categorias = _context.Categorias.ToList();
-            return View(await _context.Eventos.ToListAsync());
+            return View(await _context.Categorias.ToListAsync());
         }
 
-        // GET: Evento/Details/5
+        // GET: Categoria/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -37,48 +34,39 @@ namespace ProjetoTeste.Controllers
                 return NotFound();
             }
 
-            var evento = await _context.Eventos
+            var categoria = await _context.Categorias
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (evento == null)
+            if (categoria == null)
             {
                 return NotFound();
             }
 
-            return View(evento);
+            return View(categoria);
         }
 
-        // GET: Evento/Create
+        // GET: Categoria/Create
         public IActionResult Create()
         {
-            ViewBag.CasaShow = _context.CasaShow.ToList();
-            ViewBag.Categorias = _context.Categorias.ToList();
             return View();
         }
 
-        // POST: Evento/Create
+        // POST: Categoria/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Capacidade,Data,ValorIngresso,CasaShowId,CategoriaId")] EventoDTO eventoTemp)
+        public async Task<IActionResult> Create([Bind("Id,Nome")] Categoria categoria)
         {
             if (ModelState.IsValid)
             {
-                Evento evento = new Evento();
-                evento.Nome = eventoTemp.Nome;
-                evento.Capacidade = eventoTemp.Capacidade;
-                evento.Data = eventoTemp.Data;
-                evento.ValorIngresso = eventoTemp.ValorIngresso;
-                evento.CasaShow = _context.CasaShow.First(cs => cs.Id == eventoTemp.CasaShowId);
-                evento.Categoria = _context.Categorias.First(ctg => ctg.Id == eventoTemp.CategoriaId);
-                _context.Add(evento);
+                _context.Add(categoria);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(eventoTemp);
+            return View(categoria);
         }
 
-        // GET: Evento/Edit/5
+        // GET: Categoria/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -86,22 +74,22 @@ namespace ProjetoTeste.Controllers
                 return NotFound();
             }
 
-            var evento = await _context.Eventos.FindAsync(id);
-            if (evento == null)
+            var categoria = await _context.Categorias.FindAsync(id);
+            if (categoria == null)
             {
                 return NotFound();
             }
-            return View(evento);
+            return View(categoria);
         }
 
-        // POST: Evento/Edit/5
+        // POST: Categoria/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Capacidade,Data,ValorIngresso")] Evento evento)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome")] Categoria categoria)
         {
-            if (id != evento.Id)
+            if (id != categoria.Id)
             {
                 return NotFound();
             }
@@ -110,12 +98,12 @@ namespace ProjetoTeste.Controllers
             {
                 try
                 {
-                    _context.Update(evento);
+                    _context.Update(categoria);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EventoExists(evento.Id))
+                    if (!CategoriaExists(categoria.Id))
                     {
                         return NotFound();
                     }
@@ -126,10 +114,10 @@ namespace ProjetoTeste.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(evento);
+            return View(categoria);
         }
 
-        // GET: Evento/Delete/5
+        // GET: Categoria/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -137,30 +125,30 @@ namespace ProjetoTeste.Controllers
                 return NotFound();
             }
 
-            var evento = await _context.Eventos
+            var categoria = await _context.Categorias
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (evento == null)
+            if (categoria == null)
             {
                 return NotFound();
             }
 
-            return View(evento);
+            return View(categoria);
         }
 
-        // POST: Evento/Delete/5
+        // POST: Categoria/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var evento = await _context.Eventos.FindAsync(id);
-            _context.Eventos.Remove(evento);
+            var categoria = await _context.Categorias.FindAsync(id);
+            _context.Categorias.Remove(categoria);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EventoExists(int id)
+        private bool CategoriaExists(int id)
         {
-            return _context.Eventos.Any(e => e.Id == id);
+            return _context.Categorias.Any(e => e.Id == id);
         }
     }
 }
