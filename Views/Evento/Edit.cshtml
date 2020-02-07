@@ -31,6 +31,16 @@
                 <input asp-for="ValorIngresso" class="form-control" />
                 <span asp-validation-for="ValorIngresso" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="CasaShow" class="control-label"></label>
+                <select asp-for="CasaShow" asp-items='@(new SelectList(@ViewBag.CasaShow, "Id", "Nome"))' class="form-control"></select>
+                <span asp-validation-for="CasaShow" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Categoria" class="control-label"></label>
+                <select asp-for="Categoria" asp-items='@(new SelectList(@ViewBag.Categorias, "Id", "Nome"))' class="form-control"></select>
+                <span asp-validation-for="Categoria" class="text-danger"></span>
+            </div>
             <div class="form-group text-center">
                 <input type="submit" value="Salvar" class="btn btn-light p-3" />
             </div>

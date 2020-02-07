@@ -6,6 +6,7 @@ namespace ProjetoTeste.DTO
 {
     public class EventoDTO
     {
+        [Required]
         public int Id { get; set; }
         [Required(ErrorMessage = "Nome da categoria é obrigatório")]
         [StringLength(50, ErrorMessage = "Categoria não pode exceder 50 caracteres")]

@@ -11,32 +11,32 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
+                <input asp-for="Nome" class="form-control" required />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Capacidade" class="control-label"></label>
-                <input asp-for="Capacidade" class="form-control" />
+                <input asp-for="Capacidade" class="form-control" required />
                 <span asp-validation-for="Capacidade" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Data" class="control-label"></label>
-                <input asp-for="Data" class="form-control" />
+                <input asp-for="Data" class="form-control" required />
                 <span asp-validation-for="Data" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ValorIngresso" class="control-label"></label>
-                <input asp-for="ValorIngresso" class="form-control" />
+                <input asp-for="ValorIngresso" class="form-control" required />
                 <span asp-validation-for="ValorIngresso" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CasaShowId" class="control-label"></label>
-                <select asp-for="CasaShowId" asp-items='@(new SelectList(@ViewBag.CasaShow, "Id", "Nome"))' class="form-control"></select>
+                <select asp-for="CasaShowId" asp-items='@(new SelectList(@ViewBag.CasaShow, "Id", "Nome"))' class="form-control" required></select>
                 <span asp-validation-for="CasaShowId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CategoriaId" class="control-label"></label>
-                <select asp-for="CategoriaId" asp-items='@(new SelectList(@ViewBag.Categorias, "Id", "Nome"))' class="form-control"></select>
+                <select asp-for="CategoriaId" asp-items='@(new SelectList(@ViewBag.Categorias, "Id", "Nome"))' class="form-control" required></select>
                 <span asp-validation-for="CategoriaId" class="text-danger"></span>
             </div>
             <div class="form-group text-center">
