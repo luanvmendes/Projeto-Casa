@@ -76,6 +76,8 @@ namespace ProjetoTeste.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.CasaShow = _context.CasaShow.ToList();
+            ViewBag.Categorias = _context.Categorias.ToList();
             return View(eventoTemp);
         }
 
@@ -92,6 +94,8 @@ namespace ProjetoTeste.Controllers
             {
                 return NotFound();
             }
+            ViewBag.CasaShow = _context.CasaShow.ToList();
+            ViewBag.Categorias = _context.Categorias.ToList();
             return View(evento);
         }
 
