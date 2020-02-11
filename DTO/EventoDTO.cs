@@ -28,5 +28,6 @@ namespace ProjetoTeste.DTO
         [Required(ErrorMessage = "Selecione uma opção")]
         [Display(Name = "Categoria")]
         public int CategoriaId { get; set; }
+        //public string Imagem { get; set; }
     }
 }

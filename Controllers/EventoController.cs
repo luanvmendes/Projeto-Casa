@@ -88,23 +88,25 @@ namespace ProjetoTeste.Controllers
             {
                 return NotFound();
             }
-            var evento = await _context.Eventos.Include(p => p.CasaShow).Include(p => p.Categoria).SingleOrDefaultAsync(p => p.Id == id);
+            var evento = await _context.Eventos.Include(e => e.CasaShow).Include(e => e.Categoria).SingleOrDefaultAsync(e => e.Id == id);
             //var evento = await _context.Eventos.FindAsync(id);
             if (evento == null)
             {
                 return NotFound();
             }
-            EventoDTO viewEvento = new EventoDTO();
-            viewEvento.Id = evento.Id;
-            viewEvento.Nome = evento.Nome;
-            viewEvento.Capacidade = evento.Capacidade;
-            viewEvento.Data = evento.Data;
-            viewEvento.ValorIngresso = evento.ValorIngresso;
-            viewEvento.CasaShowId = evento.CasaShow.Id;
-            viewEvento.CategoriaId = evento.Categoria.Id;
-            ViewBag.CasaShow = _context.CasaShow.ToList();
-            ViewBag.Categorias = _context.Categorias.ToList();
-            return View(viewEvento);
+            else {
+                EventoDTO viewEvento = new EventoDTO();
+                viewEvento.Id = evento.Id;
+                viewEvento.Nome = evento.Nome;
+                viewEvento.Capacidade = evento.Capacidade;
+                viewEvento.Data = evento.Data;
+                viewEvento.ValorIngresso = evento.ValorIngresso;
+                viewEvento.CasaShowId = evento.CasaShow.Id;
+                viewEvento.CategoriaId = evento.Categoria.Id;
+                ViewBag.CasaShow = _context.CasaShow.ToList();
+                ViewBag.Categorias = _context.Categorias.ToList();
+                return View(viewEvento);
+            }
         }
 
         // POST: Evento/Edit/5
@@ -146,6 +148,9 @@ namespace ProjetoTeste.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            
+            ViewBag.CasaShow = _context.CasaShow.ToList();
+            ViewBag.Categorias = _context.Categorias.ToList();
             return View(eventoTemp);
         }
 

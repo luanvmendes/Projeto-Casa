@@ -13,6 +13,8 @@ namespace ProjetoTeste.Data
         public DbSet<CasaDeShow> CasaShow {get; set;}
         public DbSet<Evento> Eventos {get; set;}
         public DbSet<Categoria> Categorias {get; set;}
+        public DbSet<Venda> Vendas { get; set; }
+        public DbSet<ListaVenda> ListaVendas { get; set; }
         
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

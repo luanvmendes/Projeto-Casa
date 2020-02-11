@@ -20506,6 +20506,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\ProjetoTeste\\Views\\Vendas\\Delete.cshtml",
+      "TargetPath": "Views\\Vendas\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\ProjetoTeste\\Views\\Vendas\\Create.cshtml",
+      "TargetPath": "Views\\Vendas\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\ProjetoTeste\\Areas\\Identity\\Pages\\Account\\ForgotPasswordConfirmation.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\ForgotPasswordConfirmation.cshtml",
       "FileKind": "mvc"
@@ -20681,6 +20691,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\ProjetoTeste\\Views\\Vendas\\Index.cshtml",
+      "TargetPath": "Views\\Vendas\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\ProjetoTeste\\Areas\\Identity\\Pages\\Account\\Manage\\Disable2fa.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Disable2fa.cshtml",
       "FileKind": "mvc"
@@ -20708,6 +20723,11 @@
     {
       "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\ProjetoTeste\\Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\ProjetoTeste\\Views\\Vendas\\Details.cshtml",
+      "TargetPath": "Views\\Vendas\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20778,6 +20798,11 @@
     {
       "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\ProjetoTeste\\Areas\\Identity\\Pages\\Account\\Lockout.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Lockout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\ProjetoTeste\\Views\\Vendas\\Edit.cshtml",
+      "TargetPath": "Views\\Vendas\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {

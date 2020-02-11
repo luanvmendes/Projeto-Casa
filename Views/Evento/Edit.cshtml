@@ -28,7 +28,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="ValorIngresso" class="control-label"></label>
-                <input asp-for="ValorIngresso" class="form-control" />
+                <input asp-for="ValorIngresso" type="number" step="0.01" class="form-control" />
                 <span asp-validation-for="ValorIngresso" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -1,0 +1,34 @@
+@model ProjetoTeste.Models.Venda
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<header class="masthead">
+    <div class="container d-flex h-100 align-items-center text-white">
+      <div class="mx-auto col-6">
+        <h4 class="text-center">Editar</h4>
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="form-control" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Total" class="control-label"></label>
+                <input asp-for="Total" class="form-control" />
+                <span asp-validation-for="Total" class="text-danger"></span>
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" value="Salvar" class="btn btn-light p-3" />
+            </div>
+        </form>
+        <div class="hover-white">
+            <a asp-action="Index"><i class="fas fa-chevron-circle-left"></i> Voltar</a>
+        </div>
+      </div>
+    </div>
+</header>
+

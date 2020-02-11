@@ -26,5 +26,6 @@ namespace ProjetoTeste.Models
         [Required(ErrorMessage = "Campo não pode estar em branco")]
         [Display(Name = "Categoria")]
         public Categoria Categoria { get; set; }
+        //public string Imagem { get; set; }
     }
 }

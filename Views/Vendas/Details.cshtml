@@ -1,0 +1,32 @@
+@model ProjetoTeste.Models.Venda
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto col-6 bg-light p-5">
+        <h4 class="text-center">Detalhes</h4>
+        <hr />
+        <dl class="row">
+            <dt class = "col-sm-6">
+                @Html.DisplayNameFor(model => model.Data)
+            </dt>
+            <dd class = "col-sm-6">
+                @Html.DisplayFor(model => model.Data)
+            </dd>
+            <dt class = "col-sm-6">
+                @Html.DisplayNameFor(model => model.Total)
+            </dt>
+            <dd class = "col-sm-6">
+                @Html.DisplayFor(model => model.Total)
+            </dd>
+        </dl>
+        <div class="section-secondary">
+            <a asp-action="Edit" asp-route-id="@Model.Id"><i class="fas fa-pen-square"></i> Editar</a> |
+            <a asp-action="Index"><i class="fas fa-chevron-circle-left"></i> Voltar</a>
+        </div>        
+      </div>
+    </div>
+</header>

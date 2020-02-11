@@ -220,9 +220,11 @@ namespace ProjetoTeste.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Endereco")
+                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");
@@ -237,6 +239,7 @@ namespace ProjetoTeste.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");
@@ -253,16 +256,17 @@ namespace ProjetoTeste.Migrations
                     b.Property<int>("Capacidade")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CasaShowId")
+                    b.Property<int>("CasaShowId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CategoriaId")
+                    b.Property<int>("CategoriaId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<float>("ValorIngresso")
@@ -275,6 +279,52 @@ namespace ProjetoTeste.Migrations
                     b.HasIndex("CategoriaId");
 
                     b.ToTable("Eventos");
+                });
+
+            modelBuilder.Entity("ProjetoTeste.Models.ListaVenda", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("EventoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VendaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventoId");
+
+                    b.HasIndex("VendaId");
+
+                    b.ToTable("ListaVendas");
+                });
+
+            modelBuilder.Entity("ProjetoTeste.Models.Venda", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Data")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<float>("Total")
+                        .HasColumnType("float");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Vendas");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -332,11 +382,33 @@ namespace ProjetoTeste.Migrations
                 {
                     b.HasOne("ProjetoTeste.Models.CasaDeShow", "CasaShow")
                         .WithMany()
-                        .HasForeignKey("CasaShowId");
+                        .HasForeignKey("CasaShowId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ProjetoTeste.Models.Categoria", "Categoria")
                         .WithMany()
-                        .HasForeignKey("CategoriaId");
+                        .HasForeignKey("CategoriaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ProjetoTeste.Models.ListaVenda", b =>
+                {
+                    b.HasOne("ProjetoTeste.Models.Evento", "Evento")
+                        .WithMany()
+                        .HasForeignKey("EventoId");
+
+                    b.HasOne("ProjetoTeste.Models.Venda", "Venda")
+                        .WithMany()
+                        .HasForeignKey("VendaId");
+                });
+
+            modelBuilder.Entity("ProjetoTeste.Models.Venda", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

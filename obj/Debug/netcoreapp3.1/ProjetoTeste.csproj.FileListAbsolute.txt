@@ -418,3 +418,8 @@ C:\Users\Luan\Desktop\projetos\CasaDeShows\bin\Debug\netcoreapp3.1\runtimes\win\
 C:\Users\Luan\Desktop\projetos\CasaDeShows\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Luan\Desktop\projetos\CasaDeShows\obj\Debug\netcoreapp3.1\ProjetoTeste.Views.pdb
 C:\Users\Luan\Desktop\projetos\CasaDeShows\obj\Debug\netcoreapp3.1\ProjetoTeste.csproj.CopyComplete
+C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Vendas\Create.cshtml.g.cs
+C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Vendas\Delete.cshtml.g.cs
+C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Vendas\Details.cshtml.g.cs
+C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Vendas\Edit.cshtml.g.cs
+C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Vendas\Index.cshtml.g.cs

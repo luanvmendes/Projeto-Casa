@@ -22,7 +22,12 @@ namespace ProjetoTeste.Controllers
         // GET: CasaDeShow
         public async Task<IActionResult> Index()
         {
-            return View(await _context.CasaShow.ToListAsync());
+            //var count = _context.CasaShow.Count();
+            //if (count != 0) {
+                return View(await _context.CasaShow.ToListAsync());
+            //} else {
+            //    return Content("Não há casa de show cadastrada");
+            //}
         }
 
         // GET: CasaDeShow/Details/5

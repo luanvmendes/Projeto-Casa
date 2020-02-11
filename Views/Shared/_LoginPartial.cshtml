@@ -7,29 +7,32 @@
 {
     <ul class="navbar-nav flex-grow-1">
         <li class="nav-item">
-            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
+            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index" title="Início"><i class="fas fa-2x fa-home"></i></a>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Cadastros
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Cadastro">
+                <i class="fas fa-2x fa-plus-square"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="nav-link text-dark py-0 px-2" asp-area="" asp-controller="CasaDeShow" asp-action="Index">Casas de Show</a>
+            <a class="nav-link text-dark py-0 px-2" asp-area="" asp-controller="CasaDeShow" asp-action="Index"><i class="fas fa-theater-masks"></i> Casas de Show</a>
             <div class="dropdown-divider"></div>
-            <a class="nav-link text-dark py-0 px-2" asp-area="" asp-controller="Evento" asp-action="Index">Eventos</a>
+            <a class="nav-link text-dark py-0 px-2" asp-area="" asp-controller="Evento" asp-action="Index"><i class="fas fa-calendar-alt"></i> Eventos</a>
             <div class="dropdown-divider"></div>
-            <a class="nav-link text-dark py-0 px-2" asp-area="" asp-controller="Categoria" asp-action="Index">Categorias</a>
+            <a class="nav-link text-dark py-0 px-2" asp-area="" asp-controller="Categoria" asp-action="Index"><i class="far fa-list-alt"></i> Categorias</a>
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Histórico">Histórico</a>
+            <a class="nav-link" asp-area="" asp-controller="Vendas" asp-action="Index" title="Histórico"><i class="fas fa-2x fa-clipboard-list"></i></a>
         </li>
         <li class="nav-item">
-            <a  class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Gerenciar Conta</a>
+            <a  class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Gerenciar Conta"><i class="fas fa-2x fa-cog"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-area="" asp-controller="Vendas" asp-action="Index" title="Carrinho"><i class="fas fa-2x fa-shopping-cart"></i></a>
         </li>
         <li class="nav-item content-align-center">
             <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button  type="submit" class="nav-link btn btn-link shadow-none">Sair</button>
+                <button  type="submit" class="nav-link btn btn-link shadow-none" title="Sair"><i class="fas fa-2x fa-sign-out-alt"></i></button>
             </form>
         </li>
     </ul>    

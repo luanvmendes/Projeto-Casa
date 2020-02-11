@@ -1,0 +1,41 @@
+@model IEnumerable<ProjetoTeste.Models.Venda>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+}
+<div class="row col-12 align-items-start pt-5" >
+    <div class="pt-5 col-12">
+        <p><a asp-action="Create"><i class="fas fa-plus-square"></i> Adicionar</a></p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Data)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Total)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Data)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Total)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" title="Editar"><i class="fas fa-pen-square text-secondary"></i></a> <i class="fas fa-grip-lines-vertical"></i>
+                            <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes"><i class="fas fa-info-circle text-info"></i></a> <i class="fas fa-grip-lines-vertical"></i>
+                            <a asp-action="Delete" asp-route-id="@item.Id" title="Apagar"><i class="fas fa-trash text-danger"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
