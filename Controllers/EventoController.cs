@@ -25,8 +25,8 @@ namespace ProjetoTeste.Controllers
         // GET: Evento
         public async Task<IActionResult> Index()
         {
-            ViewBag.CasaShow = _context.CasaShow.ToList();
-            ViewBag.Categorias = _context.Categorias.ToList();
+            var categorias = _context.Categorias.ToList();
+            var casa = _context.CasaShow.ToList();
             return View(await _context.Eventos.ToListAsync());
         }
 
@@ -88,15 +88,23 @@ namespace ProjetoTeste.Controllers
             {
                 return NotFound();
             }
-
-            var evento = await _context.Eventos.FindAsync(id);
+            var evento = await _context.Eventos.Include(p => p.CasaShow).Include(p => p.Categoria).SingleOrDefaultAsync(p => p.Id == id);
+            //var evento = await _context.Eventos.FindAsync(id);
             if (evento == null)
             {
                 return NotFound();
             }
+            EventoDTO viewEvento = new EventoDTO();
+            viewEvento.Id = evento.Id;
+            viewEvento.Nome = evento.Nome;
+            viewEvento.Capacidade = evento.Capacidade;
+            viewEvento.Data = evento.Data;
+            viewEvento.ValorIngresso = evento.ValorIngresso;
+            viewEvento.CasaShowId = evento.CasaShow.Id;
+            viewEvento.CategoriaId = evento.Categoria.Id;
             ViewBag.CasaShow = _context.CasaShow.ToList();
             ViewBag.Categorias = _context.Categorias.ToList();
-            return View(evento);
+            return View(viewEvento);
         }
 
         // POST: Evento/Edit/5
@@ -104,9 +112,9 @@ namespace ProjetoTeste.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Capacidade,Data,ValorIngresso")] Evento evento)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Capacidade,Data,ValorIngresso,CasaShowId,CategoriaId")] EventoDTO eventoTemp)
         {
-            if (id != evento.Id)
+            if (id != eventoTemp.Id)
             {
                 return NotFound();
             }
@@ -115,12 +123,19 @@ namespace ProjetoTeste.Controllers
             {
                 try
                 {
+                    var evento = _context.Eventos.First(e => e.Id == eventoTemp.Id);
+                    evento.Nome = eventoTemp.Nome;
+                    evento.Capacidade = eventoTemp.Capacidade;
+                    evento.Data = eventoTemp.Data;
+                    evento.ValorIngresso = eventoTemp.ValorIngresso;
+                    evento.CasaShow = _context.CasaShow.First(cs => cs.Id == eventoTemp.CasaShowId);
+                    evento.Categoria = _context.Categorias.First(ctg => ctg.Id == eventoTemp.CategoriaId);
                     _context.Update(evento);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EventoExists(evento.Id))
+                    if (!EventoExists(eventoTemp.Id))
                     {
                         return NotFound();
                     }
@@ -131,7 +146,7 @@ namespace ProjetoTeste.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(evento);
+            return View(eventoTemp);
         }
 
         // GET: Evento/Delete/5

@@ -1,4 +1,4 @@
-@model ProjetoTeste.Models.Evento
+@model ProjetoTeste.DTO.EventoDTO
 
 @{
     ViewData["Title"] = "Edit";
@@ -32,14 +32,14 @@
                 <span asp-validation-for="ValorIngresso" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CasaShow" class="control-label"></label>
-                <select asp-for="CasaShow" asp-items='@(new SelectList(@ViewBag.CasaShow, "Id", "Nome"))' class="form-control"></select>
-                <span asp-validation-for="CasaShow" class="text-danger"></span>
+                <label asp-for="CasaShowId" class="control-label"></label>
+                <select asp-for="CasaShowId" asp-items='@(new SelectList(@ViewBag.CasaShow, "Id", "Nome"))' class="form-control" required></select>
+                <span asp-validation-for="CasaShowId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Categoria" class="control-label"></label>
-                <select asp-for="Categoria" asp-items='@(new SelectList(@ViewBag.Categorias, "Id", "Nome"))' class="form-control"></select>
-                <span asp-validation-for="Categoria" class="text-danger"></span>
+                <label asp-for="CategoriaId" class="control-label"></label>
+                <select asp-for="CategoriaId" asp-items='@(new SelectList(@ViewBag.Categorias, "Id", "Nome"))' class="form-control" required></select>
+                <span asp-validation-for="CategoriaId" class="text-danger"></span>
             </div>
             <div class="form-group text-center">
                 <input type="submit" value="Salvar" class="btn btn-light p-3" />
