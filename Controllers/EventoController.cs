@@ -61,7 +61,7 @@ namespace ProjetoTeste.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Capacidade,Data,ValorIngresso,CasaShowId,CategoriaId")] EventoDTO eventoTemp)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Capacidade,Data,ValorIngresso,CasaShowId,CategoriaId,Imagem")] EventoDTO eventoTemp)
         {
             if (ModelState.IsValid)
             {

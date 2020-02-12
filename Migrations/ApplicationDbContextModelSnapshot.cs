@@ -265,6 +265,9 @@ namespace ProjetoTeste.Migrations
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<string>("Imagem")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
@@ -399,8 +402,8 @@ namespace ProjetoTeste.Migrations
                         .WithMany()
                         .HasForeignKey("EventoId");
 
-                    b.HasOne("ProjetoTeste.Models.Venda", "Venda")
-                        .WithMany()
+                    b.HasOne("ProjetoTeste.Models.Venda", null)
+                        .WithMany("Lista")
                         .HasForeignKey("VendaId");
                 });
 
