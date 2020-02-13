@@ -63,9 +63,9 @@
                                 <td>
                                     <a asp-action="Edit" asp-route-id="@item.Id" title="Editar"><i class="fas fa-pen-square text-secondary"></i></a> <i class="fas fa-grip-lines-vertical"></i>
                                     <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes"><i class="fas fa-info-circle text-info"></i></a> <i class="fas fa-grip-lines-vertical"></i>
-                                    <a href="#deleteModal" class="delete" data-toggle="modal" data-id="@item.Id" title="Apagar"><i class="fas fa-trash text-danger" data-toggle="tooltip" title="Delete"></i></a>
+                                    <a href="#@item.Nome" class="delete" data-toggle="modal" data-id="@item.Id" title="Apagar"><i class="fas fa-trash text-danger" data-toggle="tooltip" title="Delete"></i></a>
                                     <!-- Delete Modal HTML -->
-                                    <div id="deleteModal" class="modal fade">
+                                    <div id="@item.Nome" class="modal fade">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content text-center">            
                                                 <div class="modal-header">                      
