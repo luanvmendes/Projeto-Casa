@@ -423,3 +423,8 @@ C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Ve
 C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Vendas\Details.cshtml.g.cs
 C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Vendas\Edit.cshtml.g.cs
 C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Vendas\Index.cshtml.g.cs
+C:\Users\Luan\Desktop\projetos\CasaDeShows\obj\Debug\netcoreapp3.1\Razor\Views\Vendas\Create.cshtml.g.cs
+C:\Users\Luan\Desktop\projetos\CasaDeShows\obj\Debug\netcoreapp3.1\Razor\Views\Vendas\Delete.cshtml.g.cs
+C:\Users\Luan\Desktop\projetos\CasaDeShows\obj\Debug\netcoreapp3.1\Razor\Views\Vendas\Details.cshtml.g.cs
+C:\Users\Luan\Desktop\projetos\CasaDeShows\obj\Debug\netcoreapp3.1\Razor\Views\Vendas\Edit.cshtml.g.cs
+C:\Users\Luan\Desktop\projetos\CasaDeShows\obj\Debug\netcoreapp3.1\Razor\Views\Vendas\Index.cshtml.g.cs

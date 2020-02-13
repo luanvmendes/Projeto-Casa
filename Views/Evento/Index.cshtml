@@ -8,60 +8,68 @@
     <div class="pt-5 col-12">
         <p><a asp-action="Create"><i class="fas fa-plus-square"></i> Adicionar</a></p>
         @if (Model.Count() != 0) {
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Nome)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Capacidade)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Data)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ValorIngresso)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.CasaShow)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Categoria)
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model) {
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Nome)
-                            </td>
-                            <td>
-                                @String.Format("{0:N0}", item.Capacidade).Replace(",",".")
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Data)
-                            </td>
-                            <td>
-                                @String.Format("R$ {0:0.00}", item.ValorIngresso).Replace(".",",")
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CasaShow.Nome)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Categoria.Nome)
-                            </td>
-                            <td>
-                                <a asp-action="Edit" asp-route-id="@item.Id" title="Editar"><i class="fas fa-pen-square text-secondary"></i></a> <i class="fas fa-grip-lines-vertical"></i>
-                                <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes"><i class="fas fa-info-circle text-info"></i></a> <i class="fas fa-grip-lines-vertical"></i>
-                                <a asp-action="Delete" asp-route-id="@item.Id" title="Apagar"><i class="fas fa-trash text-danger"></i></a>
-                            </td>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Imagem)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nome)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Capacidade)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Data)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ValorIngresso)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CasaShow)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Categoria)
+                            </th>
+                            <th></th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model) {
+                            <tr class="centralizar">
+                                <td>
+                                    <img src="@item.Imagem" class = "img-fluid" style="width: 200px; height: 200px;">
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    @String.Format("{0:N0}", item.Capacidade).Replace(",",".")
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Data)
+                                </td>
+                                <td>
+                                    @String.Format("R$ {0:0.00}", item.ValorIngresso).Replace(".",",")
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CasaShow.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Categoria.Nome)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" title="Editar"><i class="fas fa-pen-square text-secondary"></i></a> <i class="fas fa-grip-lines-vertical"></i>
+                                    <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes"><i class="fas fa-info-circle text-info"></i></a> <i class="fas fa-grip-lines-vertical"></i>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" title="Apagar"><i class="fas fa-trash text-danger"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         } else {
             <div class="row">
                 <div class="col-12">

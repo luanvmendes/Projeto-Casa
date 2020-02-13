@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjetoTeste.Data;
 using ProjetoTeste.DTO;
@@ -14,10 +15,12 @@ namespace ProjetoTeste.Controllers
 {
     public class EventoController : Controller
     {
+        private IWebHostEnvironment _hostEnvironment;
         private readonly ApplicationDbContext _context;
 
-        public EventoController(ApplicationDbContext context)
+        public EventoController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
+            _hostEnvironment = hostEnvironment;
             _context = context;
         }
 
@@ -61,10 +64,27 @@ namespace ProjetoTeste.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Capacidade,Data,ValorIngresso,CasaShowId,CategoriaId,Imagem")] EventoDTO eventoTemp)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Capacidade,Data,ValorIngresso,CasaShowId,CategoriaId,Imagem")] EventoDTO eventoTemp, List<IFormFile> files)
         {
             if (ModelState.IsValid)
             {
+                foreach (var formFile in files)
+                {
+                    if (formFile.Length > 0)
+                    {
+                        var filePath = Path.Combine(_hostEnvironment.WebRootPath, "img");
+                        var fileName = Path.GetRandomFileName();
+                        var fileExtension = Path.GetExtension(formFile.FileName);
+
+                        var fullPath = Path.Combine(filePath, fileName + fileExtension);
+
+                        using (var stream = System.IO.File.Create(fullPath))
+                        {
+                            await formFile.CopyToAsync(stream);
+                        }
+                        eventoTemp.Imagem = "/img/" + fileName + fileExtension;
+                    }
+                }
                 Evento evento = new Evento();
                 evento.Nome = eventoTemp.Nome;
                 evento.Capacidade = eventoTemp.Capacidade;
@@ -72,6 +92,7 @@ namespace ProjetoTeste.Controllers
                 evento.ValorIngresso = eventoTemp.ValorIngresso;
                 evento.CasaShow = _context.CasaShow.First(cs => cs.Id == eventoTemp.CasaShowId);
                 evento.Categoria = _context.Categorias.First(ctg => ctg.Id == eventoTemp.CategoriaId);
+                evento.Imagem = eventoTemp.Imagem;
                 _context.Add(evento);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
