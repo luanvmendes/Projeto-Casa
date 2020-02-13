@@ -56,7 +56,17 @@ namespace ProjetoTeste.Controllers
         {
             ViewBag.CasaShow = _context.CasaShow.ToList();
             ViewBag.Categorias = _context.Categorias.ToList();
-            return View();
+            if (_context.CasaShow.Count() != 0){
+                if (_context.Categorias.Count() != 0){
+                    return View();
+                } else {
+                    TempData["Erro"] = "Cadastre uma categoria antes de adicionar um evento";
+                    return RedirectToAction(nameof(Index));
+                }
+            } else {
+                TempData["Erro"] = "Cadastre uma casa de show antes de adicionar um evento";
+                return RedirectToAction(nameof(Index));
+            }            
         }
 
         // POST: Evento/Create

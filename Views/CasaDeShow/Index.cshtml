@@ -32,7 +32,28 @@
                             <td>
                                 <a asp-action="Edit" asp-route-id="@item.Id" title="Editar"><i class="fas fa-pen-square text-secondary"></i></a> <i class="fas fa-grip-lines-vertical"></i>
                                 <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes"><i class="fas fa-info-circle text-info"></i></a> <i class="fas fa-grip-lines-vertical"></i>
-                                <a asp-action="Delete" asp-route-id="@item.Id" title="Apagar"><i class="fas fa-trash text-danger"></i></a>
+                                <a href="#deleteModal" class="delete" data-toggle="modal" data-id="@item.Id" title="Apagar"><i class="fas fa-trash text-danger" data-toggle="tooltip" title="Delete"></i></a>
+                                <!-- Delete Modal HTML -->
+                                <div id="deleteModal" class="modal fade">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content text-center">            
+                                            <div class="modal-header">                      
+                                                <h4 class="modal-title">Excluir Evento</h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            </div>
+                                            <div class="modal-body">                    
+                                                <h5>Tem certeza que deseja deletar esta casa de show?</h5>
+                                                <h5 class="text-danger"><small>Essa ação apagará todos os eventos que estão relacionados a ela!</small></h5>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <form asp-action="Delete" asp-route-id="@item.Id">
+                                                    <input type="submit" value="Excluir" class="btn btn-danger p-2" /> 
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Modal -->
                             </td>
                         </tr>
                     }
