@@ -12,7 +12,7 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>
+                            <th class="w-25">
                                 @Html.DisplayNameFor(model => model.Imagem)
                             </th>
                             <th>
@@ -40,7 +40,7 @@
                         @foreach (var item in Model) {
                             <tr class="centralizar">
                                 <td>
-                                    <img src="@item.Imagem" class = "img-fluid" style="width: 200px; height: 200px;">
+                                    <img src="@item.Imagem" class = "img-fluid" >
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Nome)
@@ -61,11 +61,15 @@
                                     @Html.DisplayFor(modelItem => item.Categoria.Nome)
                                 </td>
                                 <td>
-                                    <a asp-action="Edit" asp-route-id="@item.Id" title="Editar"><i class="fas fa-pen-square text-secondary"></i></a> <i class="fas fa-grip-lines-vertical"></i>
-                                    <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes"><i class="fas fa-info-circle text-info"></i></a> <i class="fas fa-grip-lines-vertical"></i>
-                                    <a href="#@item.Nome" class="delete" data-toggle="modal" data-id="@item.Id" title="Apagar"><i class="fas fa-trash text-danger" data-toggle="tooltip" title="Delete"></i></a>
+                                    @{
+                                        string modalName = "item" + item.Id;
+                                    }
+                                    <a asp-action="Edit" asp-route-id="@item.Id" title="Editar" class="btn btn-light py-1 px-2" role="button"><i class="fas fa-pen-square text-secondary"></i></a> 
+                                    
+                                    <a href="#@modalName" data-toggle="modal" data-id="@item.Id" title="Apagar" class="btn btn-light py-1 px-2" role="button"><i class="fas fa-trash text-danger" data-toggle="tooltip" title="Delete"></i></a>
+                                    
                                     <!-- Delete Modal HTML -->
-                                    <div id="@item.Nome" class="modal fade">
+                                    <div id="@modalName" class="modal fade">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content text-center">            
                                                 <div class="modal-header">                      
@@ -85,6 +89,7 @@
                                         </div>
                                     </div>
                                     <!-- End Modal -->
+
                                 </td>
                             </tr>
                         }

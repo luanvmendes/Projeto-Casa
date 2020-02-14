@@ -197,8 +197,6 @@ C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Ca
 C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\CasaDeShow\Index.cshtml.g.cs
 C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_Layout.cshtml.g.cs
 C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Evento\Create.cshtml.g.cs
-C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Evento\Delete.cshtml.g.cs
-C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Evento\Details.cshtml.g.cs
 C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Evento\Edit.cshtml.g.cs
 C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\obj\Debug\netcoreapp3.1\Razor\Views\Evento\Index.cshtml.g.cs
 C:\Users\LUMN\Desktop\VSCode\ProjetoTeste\bin\Debug\netcoreapp3.1\Castle.Core.dll
