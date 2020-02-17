@@ -2,12 +2,13 @@
 @model RegisterModel
 @{
     ViewData["Title"] = "Register";
+    Layout = "/Areas/Identity/Pages/_Layout.cshtml";
 }
 
 <!-- Header -->
-  <header class="masthead">
-    <div class="container d-flex h-100 align-items-center text-white">
-      <div class="mx-auto col-6">
+  <section class="py-5">
+    <div class="container d-flex h-100 align-items-center py-5">
+      <div class="mx-auto col-6 py-5">
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <h4 class="text-center">Criar nova conta.</h4>
             <div asp-validation-summary="All" class="text-danger"></div>
@@ -27,12 +28,12 @@
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
             <div class="form-group text-center">
-                <button type="submit" class="btn btn-light p-3">Cadastrar</button>
+                <button type="submit" class="btn btn-dark btn-lg">Cadastrar</button>
             </div>
         </form>
       </div>
     </div>
-  </header>
+  </section>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

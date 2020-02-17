@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ProjetoTeste.Models
+namespace CasaShow.Models
 {
     public class Evento
     {

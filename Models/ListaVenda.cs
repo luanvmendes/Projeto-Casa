@@ -1,4 +1,4 @@
-namespace ProjetoTeste.Models
+namespace CasaShow.Models
 {
     public class ListaVenda
     {

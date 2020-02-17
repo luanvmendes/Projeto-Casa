@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ProjetoTeste.Data;
-using ProjetoTeste.Models;
+using CasaShow.Data;
+using CasaShow.Models;
 
-namespace ProjetoTeste.Controllers
+namespace CasaShow.Controllers
 {
     public class CategoriaController : Controller
     {

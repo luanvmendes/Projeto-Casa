@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 
-namespace ProjetoTeste.DTO
+namespace CasaShow.DTO
 {
     public class VendaDTO
     {

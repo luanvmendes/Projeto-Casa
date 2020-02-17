@@ -4,21 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
-
-    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    
-    <!-- Custom fonts for this template -->
     <link rel="stylesheet" href="~/lib/fontawesome-free/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link rel="stylesheet" href="~/css/grayscale.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<body class="bg">
     <header>
-        <<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" id="mainNav">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark box-shadow">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" title="Bilheteria"><i class="fas fa-2x fa-ticket-alt"></i></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -31,15 +23,15 @@
             </div>
         </nav>
     </header>
-
-    <header class="masthead section-secondary">
-        <div class="container d-flex h-100">
+    
+    <div class="container-fluid p-0">
+        <main role="main" class="pb-3 align-items-center">
             @RenderBody()
-        </div>
-    </header>
+        </main>
+    </div>
 
-    <footer class="bg-black small text-center text-white-50">
-        <div class="container">
+    <footer class="footer text-muted">
+        <div class="container text-center">
             &copy; 2020 - LVM
         </div>
     </footer>

@@ -1,11 +1,13 @@
-@model ProjetoTeste.Models.CasaDeShow
+@model CasaShow.Models.CasaDeShow
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "/Areas/Identity/Pages/_Layout.cshtml";
 }
-<header class="masthead">
-    <div class="container d-flex h-100 align-items-center text-white">
-      <div class="mx-auto col-6">
+
+<section>
+    <div class="row div-size align-items-center mx-0 py-5">
+      <div class="mx-auto col-8 col-lg-4">
         <h4 class="text-center">Casa De Show</h4>
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -28,5 +30,5 @@
         </div>
       </div>
     </div>
-</header>
+</section>
 

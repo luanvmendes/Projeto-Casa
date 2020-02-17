@@ -3,11 +3,12 @@
 
 @{
     ViewData["Title"] = "Log in";
+    Layout = "/Areas/Identity/Pages/_Layout.cshtml";
 }
 
-<header class="masthead">
-    <div class="container d-flex h-100 align-items-center text-white">
-      <div class="mx-auto col-6">
+  <section class="py-5">
+    <div class="container d-flex h-100 align-items-center py-5">
+      <div class="mx-auto col-6 py-5">
         <form id="account" method="post">
             <h4 class="text-center">@ViewData["Title"]</h4>
             <div asp-validation-summary="All" class="text-danger"></div>
@@ -30,20 +31,20 @@
                 </div>
             </div>
             <div class="form-group text-center">
-                <button type="submit" class="btn btn-light p-3">Entrar</button>
+                <button type="submit" class="btn btn-dark btn-lg">Entrar</button>
             </div>
             <div class="form-group text-center hover-white">
                 <p>
-                    <a id="forgot-password" asp-page="./ForgotPassword" class="text-white">Esqueci minha senha</a>
+                    <a id="forgot-password" asp-page="./ForgotPassword">Esqueci minha senha</a>
                 </p>
                 <p>
-                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="text-white">Criar nova conta.</a>
+                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Criar nova conta.</a>
                 </p>
             </div>
         </form>
       </div>
     </div>
-  </header>
+  </section>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

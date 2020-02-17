@@ -5,28 +5,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ProjetoTeste.Models;
+using CasaShow.Models;
+using CasaShow.Data;
+using Microsoft.EntityFrameworkCore;
 
-namespace ProjetoTeste.Controllers
+namespace CasaShow.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var categorias = _context.Categorias.ToList();
+            var casa = _context.CasaShow.ToList();
+            return View(await _context.Eventos.ToListAsync());
         }
     }
 }

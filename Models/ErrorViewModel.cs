@@ -1,6 +1,6 @@
 using System;
 
-namespace ProjetoTeste.Models
+namespace CasaShow.Models
 {
     public class ErrorViewModel
     {

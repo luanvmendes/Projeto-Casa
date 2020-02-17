@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 
-namespace ProjetoTeste.Models
+namespace CasaShow.Models
 {
     public class Venda
     {

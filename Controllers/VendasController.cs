@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ProjetoTeste.Data;
-using ProjetoTeste.DTO;
-using ProjetoTeste.Models;
+using CasaShow.Data;
+using CasaShow.DTO;
+using CasaShow.Models;
 using System.Security.Claims;
 
-namespace ProjetoTeste.Controllers
+namespace CasaShow.Controllers
 {
     public class VendasController : Controller
     {

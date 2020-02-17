@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ProjetoTeste.Data;
-using ProjetoTeste.Models;
+using CasaShow.Data;
+using CasaShow.Models;
 
-namespace ProjetoTeste.Controllers
+namespace CasaShow.Controllers
 {
     public class CasaDeShowController : Controller
     {
@@ -28,24 +28,6 @@ namespace ProjetoTeste.Controllers
             //} else {
             //    return Content("Não há casa de show cadastrada");
             //}
-        }
-
-        // GET: CasaDeShow/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var casaDeShow = await _context.CasaShow
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (casaDeShow == null)
-            {
-                return NotFound();
-            }
-
-            return View(casaDeShow);
         }
 
         // GET: CasaDeShow/Create

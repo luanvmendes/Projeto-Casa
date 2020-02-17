@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ProjetoTeste.Areas.Identity.Pages.Account.Manage
+namespace CasaShow.Areas.Identity.Pages.Account.Manage
 {
     public partial class IndexModel : PageModel
     {

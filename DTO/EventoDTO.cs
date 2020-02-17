@@ -1,8 +1,8 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using ProjetoTeste.Models;
+using CasaShow.Models;
 
-namespace ProjetoTeste.DTO
+namespace CasaShow.DTO
 {
     public class EventoDTO
     {

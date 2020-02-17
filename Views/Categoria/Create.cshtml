@@ -1,12 +1,13 @@
-@model ProjetoTeste.Models.Categoria
+@model CasaShow.Models.Categoria
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "/Areas/Identity/Pages/_Layout.cshtml";
 }
 
-<header class="masthead">
-    <div class="container d-flex h-100 align-items-center text-white">
-      <div class="mx-auto col-6">
+<section>
+    <div class="row div-size align-items-center mx-0 py-5">
+      <div class="mx-auto col-8 col-lg-4">
         <h4 class="text-center">Categoria</h4>
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -16,7 +17,7 @@
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group text-center">
-                <input type="submit" value="Salvar" class="btn btn-light p-3" />
+                <input type="submit" value="Salvar" class="btn btn-dark btn-lg" />
             </div>
         </form>
         <div class="hover-white">
@@ -24,4 +25,4 @@
         </div>
       </div>
     </div>
-</header>
+</section>
