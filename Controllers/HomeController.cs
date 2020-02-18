@@ -24,7 +24,7 @@ namespace CasaShow.Controllers
         {
             var categorias = _context.Categorias.ToList();
             var casa = _context.CasaShow.ToList();
-            return View(await _context.Eventos.ToListAsync());
+            return View(await _context.Eventos.OrderBy(data => data.Data).ToListAsync());
         }
     }
 }

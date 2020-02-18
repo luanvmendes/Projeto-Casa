@@ -9,9 +9,11 @@ using CasaShow.Data;
 using CasaShow.DTO;
 using CasaShow.Models;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CasaShow.Controllers
 {
+    [Authorize]
     public class VendasController : Controller
     {
         private readonly ApplicationDbContext _context;

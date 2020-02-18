@@ -1,10 +1,15 @@
 ﻿@page
 @model AccessDeniedModel
 @{
-    ViewData["Title"] = "Access denied";
+    ViewData["Title"] = "Acceso negado";
+    Layout = "/Areas/Identity/Pages/_Layout.cshtml";
 }
 
 <header>
-    <h1 class="text-danger">@ViewData["Title"]</h1>
-    <p class="text-danger">You do not have access to this resource.</p>
+    <div class="row div-size align-items-center mx-0 py-5">
+      <div class="mx-auto col-12 text-center">
+        <h1 class="text-danger">@ViewData["Title"]</h1>
+        <p class="text-danger">Você não tem permissão para acessar essa página.</p>    
+      </div>
+    </div>
 </header>

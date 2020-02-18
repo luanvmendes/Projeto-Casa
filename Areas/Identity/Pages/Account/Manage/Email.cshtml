@@ -13,20 +13,12 @@
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Email"></label>
-                @if (Model.IsEmailConfirmed)
-                {
-                    <div class="input-group">
-                        <input asp-for="Email" class="form-control" disabled />
-                        <div class="input-group-append">
-                            <span class="input-group-text text-success font-weight-bold">✓</span>
-                        </div>
-                    </div>
-                }
-                 else
-                {
+                <div class="input-group">
                     <input asp-for="Email" class="form-control" disabled />
-                    <button id="email-verification" type="submit" asp-page-handler="SendVerificationEmail" class="btn btn-link shadow-none p-0 pt-1">Enviar email de verificação</button>
-                }
+                    <div class="input-group-append">
+                        <span class="input-group-text text-success font-weight-bold">✓</span>
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="Input.NewEmail"></label>
@@ -34,7 +26,7 @@
                 <span asp-validation-for="Input.NewEmail" class="text-danger"></span>
             </div>
             <div class="form-group text-center">
-                <button id="change-email-button" type="submit" asp-page-handler="ChangeEmail" class="btn btn-light p-2">Alterar email</button>
+                <button id="change-email-button" type="submit" asp-page-handler="ChangeEmail" class="btn btn-dark btn-lg">Alterar email</button>
             </div>
         </form>
     </div>

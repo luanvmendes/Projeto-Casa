@@ -10,9 +10,11 @@ using Microsoft.EntityFrameworkCore;
 using CasaShow.Data;
 using CasaShow.DTO;
 using CasaShow.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CasaShow.Controllers
 {
+    [Authorize(Policy = "Admin")]
     public class EventoController : Controller
     {
         private IWebHostEnvironment _hostEnvironment;

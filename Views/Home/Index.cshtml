@@ -7,56 +7,63 @@
 <section class="carousel slide" id="slide-eventos">
     <div class="full-screen">
         <div class="slide carousel" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#slide-eventos" data-slide-to="0" class="active"></li>
-                <li data-target="#slide-eventos" data-slide-to="1"></li>
-                <li data-target="#slide-eventos" data-slide-to="2"></li>
+            @if (Model.Count() != 0) {
+                <ol class="carousel-indicators">
+                    <li data-target="#slide-eventos" data-slide-to="0" class="active"></li>
+                    <li data-target="#slide-eventos" data-slide-to="1"></li>
+                    <li data-target="#slide-eventos" data-slide-to="2"></li>
+                    <li data-target="#slide-eventos" data-slide-to="3"></li>
+                    <li data-target="#slide-eventos" data-slide-to="4"></li>
                 </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item slider-fullscreen-image active" style="background-image: url(img/eventos/kiss.jpg);">
+            }
+            <div class="carousel-inner">  
+                <div class="carousel-item slider-fullscreen-image active" style="background-image: url(img/bg-index.jpg);">
                     <div class="container container-slide">
                         <div class="image_wrapper">
                             <div class="mbr-overlay" style="background-color: rgb(70, 80, 82);"></div>
-                            <img src="img/eventos/kiss.jpg">
+                            <img src="img/bg-index.jpg">
                             <div class="carousel-caption d-block">
-                                <h5>KISS</h5>
-                                <p>Data:</p>
-                                <a class="btn  btn-warning display-4" href="#">COMPRAR INGRESSO</a>
+                                <h5>Bilheteria</h5>
+                                <p>Próximos Eventos</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item slider-fullscreen-image" style="background-image: url(img/eventos/metallica.jpg);">
-                    <div class="container container-slide">
-                        <div class="image_wrapper">
-                            <div class="mbr-overlay" style="background-color: rgb(35, 35, 35);"></div>
-                            <img src="img/eventos/metallica.jpg">
-                            <div class="carousel-caption d-block">
-                                <a class="btn  btn-warning display-4" href="#">COMPRAR INGRESSO</a>
+                @{
+                    int count = 0;
+                }
+                @if (Model.Count() != 0) {
+                    @foreach (var item in Model) {
+                        count++;
+                        if (count < 5) {
+                            <div class="carousel-item slider-fullscreen-image" style="background-image: url(@item.Imagem);">
+                                <div class="container container-slide">
+                                    <div class="image_wrapper">
+                                        <div class="mbr-overlay" style="background-color: rgb(70, 80, 82);"></div>
+                                        <img src="@item.Imagem">
+                                        <div class="carousel-caption d-block">
+                                            <h5>@item.Nome</h5>
+                                            <p>Data: @String.Format("{0:dd MMM}", @item.Data)
+                                            <br>Horário: @String.Format("{0:HH:mm}", @item.Data)</p>
+                                            <a class="btn btn-warning display-4" href="#">COMPRAR INGRESSO</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item slider-fullscreen-image" style="background-image: url(img/eventos/nightwish.jpg);">
-                    <div class="container container-slide">
-                        <div class="image_wrapper">
-                            <div class="mbr-overlay" style="background-color: rgb(70, 80, 82);"></div>
-                            <img src="img/eventos/nightwish.jpg">
-                            <div class="carousel-caption d-block">
-                                <a class="btn  btn-warning display-4" href="#">COMPRAR INGRESSO</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        }
+                    }
+                }                    
             </div>
-            <a class="carousel-control carousel-control-prev" href="#slide-eventos" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#slide-eventos" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+            @if (Model.Count() != 0) {
+                <a class="carousel-control carousel-control-prev" href="#slide-eventos" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#slide-eventos" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            }
         </div>
     </div>
 </section>
@@ -73,8 +80,8 @@
             @foreach (var item in Model) {
                 <div class="row ticket">
                     <div class="col">
-                        <div class="row">
-                            <a class="col-10 ticket-link" href="05-Events-Single-Events.html">
+                        <div class="row pl-5">
+                            <a class="col-8 ticket-link" href="05-Events-Single-Events.html">
                                 <div class="day">
                                     <div class="day_num">
                                         <span>@String.Format("{0:dd}", item.Data)</span>
@@ -88,8 +95,8 @@
                                     <p><span>@Html.DisplayFor(modelItem => item.Nome)</span> // <span>@Html.DisplayFor(modelItem => item.CasaShow.Nome)</span></p>
                                 </div>
                             </a>
-                            <div class="col-2 buy">
-                                <a href="#">Buy Ticket</a>
+                            <div class="col-6 col-md-2 py-2 buy">
+                                <a href="#">Comprar</a>
                             </div>
                         </div>
                     </div>

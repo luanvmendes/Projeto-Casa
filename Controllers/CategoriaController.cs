@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CasaShow.Data;
 using CasaShow.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CasaShow.Controllers
 {
+    [Authorize(Policy = "Admin")]
     public class CategoriaController : Controller
     {
         private readonly ApplicationDbContext _context;

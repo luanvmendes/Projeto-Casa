@@ -36,6 +36,9 @@ namespace CasaShow
                 config.Password.RequireUppercase=false;
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+                services.AddAuthorization(options => options.AddPolicy("Admin", policy => policy.RequireClaim("Admin", "True")));
+
             services.AddControllersWithViews();
            services.AddRazorPages();
         }
