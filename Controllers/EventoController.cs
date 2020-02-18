@@ -139,6 +139,7 @@ namespace CasaShow.Controllers
             {
                 try
                 {
+                    var evento = _context.Eventos.First(e => e.Id == eventoTemp.Id);
                     foreach (var formFile in novaImagem)
                     {
                         if (formFile.Length > 0)
@@ -149,6 +150,8 @@ namespace CasaShow.Controllers
 
                             var fullPath = Path.Combine(filePath, fileName + fileExtension);
 
+                            System.IO.File.Delete(Path.Combine(_hostEnvironment.WebRootPath + evento.Imagem));
+
                             using (var stream = System.IO.File.Create(fullPath))
                             {
                                 await formFile.CopyToAsync(stream);
@@ -156,7 +159,6 @@ namespace CasaShow.Controllers
                             eventoTemp.Imagem = "/img/" + fileName + fileExtension;
                         }
                     }
-                    var evento = _context.Eventos.First(e => e.Id == eventoTemp.Id);
                     evento.Nome = eventoTemp.Nome;
                     evento.Capacidade = eventoTemp.Capacidade;
                     evento.Data = eventoTemp.Data;
@@ -194,6 +196,7 @@ namespace CasaShow.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var evento = await _context.Eventos.FindAsync(id);
+            System.IO.File.Delete(Path.Combine(_hostEnvironment.WebRootPath + evento.Imagem));
             _context.Eventos.Remove(evento);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
