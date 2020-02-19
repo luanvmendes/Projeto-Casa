@@ -625,3 +625,8 @@ C:\Users\LUMN\Desktop\VSCode\CasaDeShows\obj\Debug\netcoreapp3.1\Razor\Views\Ven
 C:\Users\LUMN\Desktop\VSCode\CasaDeShows\obj\Debug\netcoreapp3.1\Razor\Views\Vendas\Details.cshtml.g.cs
 C:\Users\LUMN\Desktop\VSCode\CasaDeShows\obj\Debug\netcoreapp3.1\Razor\Views\Vendas\Edit.cshtml.g.cs
 C:\Users\LUMN\Desktop\VSCode\CasaDeShows\obj\Debug\netcoreapp3.1\Razor\Views\Vendas\Index.cshtml.g.cs
+C:\Users\LUMN\Desktop\VSCode\CasaDeShows\obj\Debug\netcoreapp3.1\Razor\Views\Carrinho\Create.cshtml.g.cs
+C:\Users\LUMN\Desktop\VSCode\CasaDeShows\obj\Debug\netcoreapp3.1\Razor\Views\Carrinho\Delete.cshtml.g.cs
+C:\Users\LUMN\Desktop\VSCode\CasaDeShows\obj\Debug\netcoreapp3.1\Razor\Views\Carrinho\Details.cshtml.g.cs
+C:\Users\LUMN\Desktop\VSCode\CasaDeShows\obj\Debug\netcoreapp3.1\Razor\Views\Carrinho\Edit.cshtml.g.cs
+C:\Users\LUMN\Desktop\VSCode\CasaDeShows\obj\Debug\netcoreapp3.1\Razor\Views\Carrinho\Index.cshtml.g.cs
