@@ -9,6 +9,7 @@
         <li class="nav-item">
             <a class="nav-link pr-4" asp-area="" asp-controller="Home" asp-action="Index" title="Início"><i class="fas fa-2x fa-home"></i></a>
         </li>
+        @if (User.FindFirst("Admin").Value == "True"){ 
         <li class="nav-item dropdown pr-3">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Cadastro">
                 <i class="fas fa-2x fa-plus-square"></i>
@@ -21,6 +22,7 @@
             <a class="nav-link text-dark py-0 px-2" asp-area="" asp-controller="Categoria" asp-action="Index"><i class="far fa-list-alt"></i> Categorias</a>
             </div>
         </li>
+        }
         <li class="nav-item pr-3">
             <a class="nav-link" asp-area="" asp-controller="Vendas" asp-action="Index" title="Histórico"><i class="fas fa-2x fa-clipboard-list"></i></a>
         </li>
