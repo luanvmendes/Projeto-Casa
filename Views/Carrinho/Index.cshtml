@@ -33,7 +33,7 @@
                     @Html.DisplayFor(modelItem => item.Quantidade)
                 </td>
                 <td>
-                    @String.Format("{0:C2}", item.Preco)
+                    @String.Format("R$ {0:0.00}", item.Preco).Replace(".", ",")
                     @{
                         Total += item.Preco;
                     }
@@ -52,7 +52,7 @@
         <thead class="text-right">
             <tr>
                 <td>
-                    <b>Total:</b> @String.Format("{0:C2}", Total)
+                    <b>Total:</b> @String.Format("R$ {0:0.00}", Total).Replace(".", ",")
                 </td>
             </tr>
         </thead>
