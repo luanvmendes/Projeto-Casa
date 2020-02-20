@@ -23,6 +23,7 @@ namespace CasaShow.Controllers
         // GET: Carrinho
         public async Task<IActionResult> Index()
         {
+            var evento = _context.Eventos.ToList();
             return View(await _context.Carrinho.ToListAsync());
         }
 
@@ -87,12 +88,19 @@ namespace CasaShow.Controllers
                 return NotFound();
             }
 
-            var carrinho = await _context.Carrinho.FindAsync(id);
+            var carrinho = await _context.Carrinho.Include(e => e.Evento).SingleOrDefaultAsync(e => e.Id == id);
             if (carrinho == null)
             {
                 return NotFound();
+            } else {
+                CarrinhoDTO car = new CarrinhoDTO();
+                car.Id = carrinho.Id;
+                car.EventoId = carrinho.Evento.Id;
+                car.Quantidade = carrinho.Quantidade;
+                car.Preco = carrinho.Preco;
+                ViewBag.Evento = _context.Eventos.ToList();
+                return View(car);
             }
-            return View(carrinho);
         }
 
         // POST: Carrinho/Edit/5
@@ -100,9 +108,9 @@ namespace CasaShow.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Quantidade,Preco")] Carrinho carrinho)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,EventoId,Quantidade,Preco")] CarrinhoDTO carrinhoTemp)
         {
-            if (id != carrinho.Id)
+            if (id != carrinhoTemp.Id)
             {
                 return NotFound();
             }
@@ -111,12 +119,18 @@ namespace CasaShow.Controllers
             {
                 try
                 {
-                    _context.Update(carrinho);
+                    var car = _context.Carrinho.First(x => x.Id == carrinhoTemp.Id);
+                    var evento = _context.Eventos.First(e => e.Id == carrinhoTemp.EventoId);
+                    car.Id = carrinhoTemp.Id;
+                    car.Evento = evento;
+                    car.Quantidade = carrinhoTemp.Quantidade;
+                    car.Preco = car.Quantidade * evento.ValorIngresso;
+                    _context.Update(car);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CarrinhoExists(carrinho.Id))
+                    if (!CarrinhoExists(carrinhoTemp.Id))
                     {
                         return NotFound();
                     }
@@ -127,7 +141,8 @@ namespace CasaShow.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(carrinho);
+            ViewBag.Evento = _context.Eventos.ToList();
+            return View(carrinhoTemp);
         }
 
         // GET: Carrinho/Delete/5

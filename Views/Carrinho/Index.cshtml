@@ -2,40 +2,61 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+    float Total = 0;
 }
-
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Preco)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Preco)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="container">
+<div class="row col-12 align-items-start pt-5" >
+    <div class="pt-5 col-12">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Evento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantidade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Preco)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Evento.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantidade)
+                </td>
+                <td>
+                    @String.Format("{0:C2}", item.Preco)
+                    @{
+                        Total += item.Preco;
+                    }
+                </td>
+                <td class="d-flex">
+                    <a asp-action="Edit" asp-route-id="@item.Id" title="Editar" class="btn btn-light py-1 px-2" role="button"><i class="fas fa-pen-square text-secondary"></i></a> 
+                    <form asp-action="Delete" asp-route-id="@item.Id">
+                        <button type="submit" class="btn btn-light py-1 px-2" ><i class="fas fa-trash text-danger"></i></button> 
+                    </form>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    <table class="table">
+        <thead class="text-right">
+            <tr>
+                <td>
+                    <b>Total:</b> @String.Format("{0:C2}", Total)
+                </td>
+            </tr>
+        </thead>
+    </table>
+    </div>
+</div>
+</div>
