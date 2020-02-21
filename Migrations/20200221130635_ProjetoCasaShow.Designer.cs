@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CasaShow.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200218163758_AddClaimAdmin")]
-    partial class AddClaimAdmin
+    [Migration("20200221130635_ProjetoCasaShow")]
+    partial class ProjetoCasaShow
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -90,30 +90,6 @@ namespace CasaShow.Migrations
                     b.ToTable("Eventos");
                 });
 
-            modelBuilder.Entity("CasaShow.Models.ListaVenda", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int?>("EventoId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantidade")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("VendasId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EventoId");
-
-                    b.HasIndex("VendasId");
-
-                    b.ToTable("ListaVendas");
-                });
-
             modelBuilder.Entity("CasaShow.Models.Venda", b =>
                 {
                     b.Property<int>("Id")
@@ -123,6 +99,12 @@ namespace CasaShow.Migrations
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<int?>("EventoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
                     b.Property<float>("Total")
                         .HasColumnType("float");
 
@@ -130,6 +112,8 @@ namespace CasaShow.Migrations
                         .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("EventoId");
 
                     b.HasIndex("UserId");
 
@@ -347,19 +331,12 @@ namespace CasaShow.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CasaShow.Models.ListaVenda", b =>
+            modelBuilder.Entity("CasaShow.Models.Venda", b =>
                 {
                     b.HasOne("CasaShow.Models.Evento", "Evento")
                         .WithMany()
                         .HasForeignKey("EventoId");
 
-                    b.HasOne("CasaShow.Models.Venda", "Vendas")
-                        .WithMany()
-                        .HasForeignKey("VendasId");
-                });
-
-            modelBuilder.Entity("CasaShow.Models.Venda", b =>
-                {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");

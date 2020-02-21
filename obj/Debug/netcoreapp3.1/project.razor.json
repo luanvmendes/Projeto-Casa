@@ -20586,21 +20586,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\CasaDeShows\\Views\\Vendas\\Delete.cshtml",
-      "TargetPath": "Views\\Vendas\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\CasaDeShows\\Views\\Carrinho\\Delete.cshtml",
-      "TargetPath": "Views\\Carrinho\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\CasaDeShows\\Views\\Carrinho\\Details.cshtml",
-      "TargetPath": "Views\\Carrinho\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\CasaDeShows\\Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
       "FileKind": "mvc"
@@ -20613,11 +20598,6 @@
     {
       "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\CasaDeShows\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\CasaDeShows\\Views\\Carrinho\\Create.cshtml",
-      "TargetPath": "Views\\Carrinho\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20661,23 +20641,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\CasaDeShows\\Views\\Vendas\\Details.cshtml",
-      "TargetPath": "Views\\Vendas\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\CasaDeShows\\Areas\\Identity\\Pages\\Account\\_StatusMessage.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\_StatusMessage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\CasaDeShows\\Views\\Vendas\\Edit.cshtml",
-      "TargetPath": "Views\\Vendas\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\CasaDeShows\\Views\\Carrinho\\Index.cshtml",
-      "TargetPath": "Views\\Carrinho\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20688,11 +20653,6 @@
     {
       "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\CasaDeShows\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\LUMN\\Desktop\\VSCode\\CasaDeShows\\Views\\Carrinho\\Edit.cshtml",
-      "TargetPath": "Views\\Carrinho\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {

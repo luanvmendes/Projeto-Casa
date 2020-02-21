@@ -36,7 +36,7 @@
                                             <h5>@item.Nome</h5>
                                             <p>Data: @String.Format("{0:dd MMM}", @item.Data)
                                             <br>Horário: @String.Format("{0:HH:mm}", @item.Data)</p>
-                                            <a class="btn btn-warning display-4" href="#">COMPRAR INGRESSO</a>
+                                            <a class="btn btn-warning display-4" asp-action="Create" asp-controller="Vendas" asp-route-id="@item.Id">COMPRAR INGRESSO</a>
                                         </div>
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
                                             <h5>@item.Nome</h5>
                                             <p>Data: @String.Format("{0:dd MMM}", @item.Data)
                                             <br>Horário: @String.Format("{0:HH:mm}", @item.Data)</p>
-                                            <a class="btn btn-warning display-4" href="#">COMPRAR INGRESSO</a>
+                                            <a class="btn btn-warning display-4" asp-action="Create" asp-controller="Vendas" asp-route-id="@item.Id">COMPRAR INGRESSO</a>
                                         </div>
                                     </div>
                                 </div>
@@ -114,7 +114,7 @@
                                 </div>
                             </a>
                             <div class="col-6 col-md-2 py-2 buy">
-                                <a asp-action="Create" asp-controller="Carrinho" asp-route-id="@item.Id">Comprar</a>
+                                <a asp-action="Create" asp-controller="Vendas" asp-route-id="@item.Id">Comprar</a>
                             </div>
                         </div>
                     </div>

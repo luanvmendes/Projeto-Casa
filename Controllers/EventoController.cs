@@ -40,6 +40,7 @@ namespace CasaShow.Controllers
         {
             ViewBag.CasaShow = _context.CasaShow.ToList();
             ViewBag.Categorias = _context.Categorias.ToList();
+            ViewBag.Data = String.Format("{0:yyyy-MM-ddTHH:mm}", DateTime.Now);
             if (_context.CasaShow.Count() != 0){
                 if (_context.Categorias.Count() != 0){
                     return View();

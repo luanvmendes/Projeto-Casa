@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CasaShow.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200217105357_CreateIdentitySchema")]
+    [Migration("20200221130546_CreateIdentitySchema")]
     partial class CreateIdentitySchema
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

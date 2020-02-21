@@ -7,7 +7,7 @@ namespace CasaShow.Models
         [Required]
         public int Id { get; set; }
         [Required(ErrorMessage = "Campo não pode estar em branco")]
-        [Display(Name = "Nome da Categoria")]
+        [Display(Name = "Gênero")]
         public string Nome { get; set; }
     }
 }

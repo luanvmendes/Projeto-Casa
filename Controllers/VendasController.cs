@@ -28,30 +28,19 @@ namespace CasaShow.Controllers
         public async Task<IActionResult> Index()
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            return View(await _context.Vendas.ToListAsync());
-        }
-
-        // GET: Vendas/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var venda = await _context.Vendas
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (venda == null)
-            {
-                return NotFound();
-            }
-
-            return View(venda);
+            var evento = _context.Eventos.ToList();
+            return View(await _context.Vendas.Include(x => x.Evento).Where(x => x.User.Id == this.User.FindFirstValue(ClaimTypes.NameIdentifier)).ToListAsync());
         }
 
         // GET: Vendas/Create
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
+            var evento = _context.Eventos.First(x => x.Id == id);
+            ViewBag.EventoId = evento.Id;
+            ViewBag.EventoNome = evento.Nome;
+            ViewBag.MaxQuantidade = evento.Capacidade;
+            ViewBag.Preco = evento.ValorIngresso;
+            ViewBag.Data = String.Format("{0:yyyy-MM-ddTHH:mm}", DateTime.Now);
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             return View();
         }
@@ -61,71 +50,25 @@ namespace CasaShow.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserId,Data,Total")] VendaDTO dtoVenda)
+        public async Task<IActionResult> Create(int id, [Bind("Id,UserId,Data,Total,EventoId,Quantidade")] VendaDTO dtoVenda)
         {
             if (ModelState.IsValid)
             {
+                var evento = _context.Eventos.First(x => x.Id == id);
                 Venda venda = new Venda();
                 dtoVenda.UserId.Id = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
                 venda.User = _context.Users.First(user => user.Id == dtoVenda.UserId.Id);
                 venda.Data = dtoVenda.Data;
-                venda.Total = dtoVenda.Total;
+                venda.Evento = evento;
+                venda.Quantidade = dtoVenda.Quantidade;
+                venda.Total = dtoVenda.Total * dtoVenda.Quantidade;
+                evento.Capacidade -= venda.Quantidade;
+                _context.Update(evento);
                 _context.Add(venda);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(dtoVenda);
-        }
-
-        // GET: Vendas/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var venda = await _context.Vendas.FindAsync(id);
-            if (venda == null)
-            {
-                return NotFound();
-            }
-            return View(venda);
-        }
-
-        // POST: Vendas/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Data,Total")] Venda venda)
-        {
-            if (id != venda.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(venda);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!VendaExists(venda.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(venda);
         }
 
         // GET: Vendas/Delete/5
@@ -151,7 +94,10 @@ namespace CasaShow.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var venda = await _context.Vendas.FindAsync(id);
+            var venda = await _context.Vendas.Include(x => x.Evento).FirstOrDefaultAsync(x => x.Id == id);
+            var evento = _context.Eventos.First(X => X.Id == venda.Evento.Id);
+            evento.Capacidade += venda.Quantidade;
+            _context.Update (evento);
             _context.Vendas.Remove(venda);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

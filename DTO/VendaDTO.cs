@@ -10,9 +10,11 @@ namespace CasaShow.DTO
         public int Id { get; set; }
         [Required]
         public IdentityUser UserId { get; set; }
-        [Required(ErrorMessage = "Data da venda é obrigatório")]
         public DateTime Data { get; set; }
+        public int EventoId { get; set; }
+        public int Quantidade { get; set; }
         [Required]
+        [Display(Name="Preço Unitário")]
         public float Total { get; set; }
     }
 }
